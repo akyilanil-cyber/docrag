@@ -1,0 +1,49 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #fff;
+  --text: #1c2330;
+  --muted: #6b7482;
+  --line: #e2e6ec;
+  --accent: #2f5fd0;
+  --ok: #1f8a4c;
+  --bad: #c43d3d;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151b;
+    --panel: #1b2028;
+    --text: #e8ebf0;
+    --muted: #98a1b0;
+    --line: #2b323d;
+    --accent: #6d95ff;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; }
+.app { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+h1 { margin: 0; }
+header p { color: var(--muted); margin: 4px 0 20px; }
+main { display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; }
+@media (max-width: 720px) { main { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.upload { display: block; padding: 18px; border: 2px dashed var(--line); border-radius: 8px; text-align: center; cursor: pointer; color: var(--muted); }
+.upload input { display: none; }
+.docs { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+.docs li { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 8px; padding: 4px; }
+.docs li.active { border-color: var(--accent); }
+.doc { flex: 1; display: grid; gap: 4px; text-align: left; background: none; border: 0; color: inherit; padding: 8px; cursor: pointer; font: inherit; }
+.name { font-weight: 600; word-break: break-all; }
+.badge { font-size: 12px; justify-self: start; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); }
+.badge.done { color: var(--ok); }
+.badge.failed { color: var(--bad); }
+progress { width: 100%; }
+.link { background: none; border: 0; color: var(--bad); cursor: pointer; padding: 8px; font: inherit; }
+form { display: flex; gap: 8px; }
+form input { flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: inherit; font: inherit; }
+form button { padding: 10px 18px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; cursor: pointer; font: inherit; }
+form button:disabled { opacity: 0.5; cursor: not-allowed; }
+.answer { margin-top: 16px; padding: 12px; border-left: 3px solid var(--accent); background: var(--bg); border-radius: 0 8px 8px 0; white-space: pre-wrap; }
+blockquote { margin: 8px 0; padding: 8px 12px; border-left: 3px solid var(--line); }
+.muted { color: var(--muted); }
+.error { margin: 12px 0; padding: 10px 12px; border: 1px solid var(--bad); color: var(--bad); border-radius: 8px; }
